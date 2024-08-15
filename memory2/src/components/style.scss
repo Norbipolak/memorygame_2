@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import "mixins.scss";
+@import "init.scss";
+@import "variables.scss";
+@import "settings.scss";
+@import "grid.scss";
+@import "flex.scss";
+@import "inputs.scss";
+
+@keyframes highlight-cell {
+    0% {background-color:map-get($colors, "primary")}
+    99% {background-color:map-get($colors, "primary")}
+    100% {background-color: transparent;}
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Nunito", sans-serif;
+    margin:10px 0;
+}
+
+h1 {
+    color:map-get($colors, "primary");
+}
+
+h2 {
+    color:map-get($colors, "primary-lighter");
+}
+
+h3 {
+    color:map-get($colors, "secondary-darker");
+}
+
+h4 {
+    color:map-get($colors, "secondary");
+}
+
+h5 {
+    color:map-get($colors, "dark-grey");
+}
+
+h6 {
+    color:map-get($colors, "mid-grey");
+}
+
+p {
+    padding:10px 0;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+}
+
+.transparent {
+    background-color: #5d5f71e3;
+}
+
+.shadow {
+    box-shadow: 0px 0px 4px map-get($colors, "dark-grey");
+}
+
+nav {
+    height:80px;
+    background-color:map-get($colors, "primary");
+    position:sticky;
+    top:0;
+    transition: all .5s ease;
+    z-index:1000;
+
+    ul {
+        display:flex;
+        justify-content: center;
+
+        @media screen and (max-width:map-get($sizes, "sm")) {
+            display:block;
+        }
+    }
+
+    li {
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        height:80px;
+        &:hover {
+            background-color: map-get($colors, "secondary");
+        }
+
+        @media screen and (max-width:map-get($sizes, "sm")) {
+            height:40px;
+        }
+    }
+
+    a {
+        color:white!important;
+        text-decoration: none;
+        padding:15px;
+    }
+
+    @media screen and (max-width:map-get($sizes, "sm")) {
+        height:auto;
+        position:fixed;
+        width:100%;
+    }
+}
+
+.burger-menu {
+    width:40px;
+    height:40px;
+    position:fixed;
+    z-index:1002;
+    font-size: 40px;
+    color:map-get($colors, "secondary-darker");
+    display:none;
+    cursor: pointer;
+    top:0;
+    margin-top:-8px;
+    left:5px;
+
+    @media screen and (max-width:map-get($sizes, "sm")) {
+        display: block;
+    }
+}
+
+header {
+    height:350px;
+    // background-image: url("../images/header.jpg");
+    background-size:100%;
+    background-position: center;
+
+    @media screen and (max-width:map-get($sizes, "md")) {
+        height:250px;
+    }
+
+    @media screen and (max-width:map-get($sizes, "sm")) {
+        height:200px;
+    }
+}
+
+.selected-menu {
+    background-color:map-get($colors, "secondary");
+}
+
+.loading-component {
+    position:relative;
+    text-align: center;
+}
+
+.loading-holder {
+    position:relative;
+    background-color: map-get($colors, "light-grey");
+    height:10px;
+}
+
+.loading-line {
+    position: absolute;
+    background-color:map-get($colors, "primary");
+    height:10px;
+    left:0;
+    top:0;
+    bottom:0;
+}
+
+.modal-img {
+    width:100%;
+    height:100%;
+    position: fixed;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    margin:auto;
+    background-color:rgba(0,0,0,0.7);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    z-index:1001;
+}
+
+.modal-img-holder {
+    position:relative;
+    width:80%;
+}
+
+.modal-img-holder img {
+    width:100%;
+}
+
+.modal-x {
+    position:absolute;
+    top:20px;
+    right:20px;
+    font-size:25px;
+    color:map-get($colors, "danger");
+    cursor: pointer;
+}
+
+a:link {
+    color: map-get($colors, "secondary");
+}
+
+a:visited {
+    color: map-get($colors, "secondary-darker");
+}
+
+.hiding {
+    width:50%;
+    height:100%;
+    right:0;
+    top:0;
+    position:absolute;
+    background-color:black;
+}
+
+.nunito-font {
+    font-family: "Nunito", sans-serif;
+}
+
+.fa-icon-holder {
+    height: 30px;
+    overflow: hidden;
+}
+
+.fa-icon-holder .upper-icon,
+.fa-icon-holder .lower-icon {
+    transition: margin-top 0.5s ease;
+}
+
+.fa-icon-holder:hover .upper-icon {
+    margin-top: -40px;
+}
+
+.fa-icon-holder:not(:hover) .upper-icon {
+    margin-top: 0;
+}
+
+.loading-icon {
+    width:150px;
+    height:150px;
+    // background-image: url("../images/loading_icon.gif");
+    background-position: center;
+    background-size: 150px;
+    position:fixed;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    margin:auto;
+}
+
+.highlighted-cell {
+    animation-name: highlight-cell;
+    animation-duration: 2s;
+}
+
+.selected-well {
+    background-color:map-get($colors, "success")!important;
+}
+
+.selected-wrong {
+    background-color:map-get($colors, "danger")!important;
+}
